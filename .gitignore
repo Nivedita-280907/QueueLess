@@ -1,0 +1,12 @@
+# Root Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+
+# OS/Editor
+.DS_Store
+.idea
+.vscode
+*.log

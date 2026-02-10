@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-bg-primary: #faf9f7;
+    --color-bg-secondary: #ffffff;
+    --color-bg-tertiary: #f5f3f0;
+    --color-border: #e8e6e3;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #6b6b6b;
+    --color-accent-purple: #8b7fc9;
+    --color-accent-blue: #5b98d4;
+    --color-accent-green: #5cb85c;
+    --color-accent-red: #d9534f;
+    --sidebar-width: 240px;
+}
+
+@layer base {
+    body {
+        @apply antialiased;
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-primary);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    }
+
+    * {
+        @apply border-gray-200;
+    }
+}
+
+@layer components {
+
+    /* Sidebar */
+    .sidebar {
+        @apply fixed left-0 top-0 h-screen bg-white border-r;
+        width: var(--sidebar-width);
+        border-color: var(--color-border);
+    }
+
+    .sidebar-nav-item {
+        @apply flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 rounded-lg mx-2 transition-colors cursor-pointer;
+    }
+
+    .sidebar-nav-item.active {
+        @apply bg-gray-100 text-gray-900 font-medium;
+    }
+
+    /* Main content area */
+    .main-content {
+        margin-left: var(--sidebar-width);
+        @apply min-h-screen p-8;
+    }
+
+    /* Cards */
+    .card {
+        @apply bg-white rounded-xl border p-6 shadow-sm;
+        border-color: var(--color-border);
+    }
+
+    .card-header {
+        @apply flex items-center justify-between mb-6;
+    }
+
+    .card-title {
+        @apply text-lg font-semibold text-gray-900;
+    }
+
+    /* Buttons */
+    .btn {
+        @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
+    .btn-primary {
+        @apply bg-gray-900 text-white hover:bg-gray-800 focus:ring-gray-900;
+    }
+
+    .btn-secondary {
+        @apply bg-white text-gray-700 border hover:bg-gray-50 focus:ring-gray-500;
+        border-color: var(--color-border);
+    }
+
+    .btn-accent {
+        @apply text-white hover:opacity-90 focus:ring-purple-500;
+        background-color: var(--color-accent-purple);
+    }
+
+    .btn-success {
+        @apply text-white hover:opacity-90 focus:ring-green-500;
+        background-color: var(--color-accent-green);
+    }
+
+    .btn-danger {
+        @apply text-white hover:opacity-90 focus:ring-red-500;
+        background-color: var(--color-accent-red);
+    }
+
+    .btn-sm {
+        @apply px-3 py-1.5 text-xs;
+    }
+
+    .btn-icon {
+        @apply p-2 hover:bg-gray-100 rounded-lg;
+    }
+
+    /* Form inputs */
+    .input-field {
+        @apply w-full px-4 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all;
+        border-color: var(--color-border);
+    }
+
+    .input-search {
+        @apply pl-10;
+    }
+
+    .label-field {
+        @apply block text-sm font-medium text-gray-700 mb-2;
+    }
+
+    /* Tables */
+    .table-container {
+        @apply bg-white rounded-xl border overflow-hidden;
+        border-color: var(--color-border);
+    }
+
+    .table {
+        @apply w-full;
+    }
+
+    .table-header {
+        @apply bg-gray-50 border-b;
+        border-color: var(--color-border);
+    }
+
+    .table-header-cell {
+        @apply px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider;
+    }
+
+    .table-row {
+        @apply border-b hover:bg-gray-50 transition-colors;
+        border-color: var(--color-border);
+    }
+
+    .table-row:last-child {
+        @apply border-b-0;
+    }
+
+    .table-cell {
+        @apply px-6 py-4 text-sm text-gray-900;
+    }
+
+    /* Badges */
+    .badge {
+        @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium;
+    }
+
+    .badge-purple {
+        @apply text-purple-700;
+        background-color: #f3f0ff;
+    }
+
+    .badge-blue {
+        @apply bg-blue-50 text-blue-700;
+    }
+
+    .badge-green {
+        @apply bg-green-50 text-green-700;
+    }
+
+    .badge-yellow {
+        @apply bg-yellow-50 text-yellow-700;
+    }
+
+    .badge-red {
+        @apply bg-red-50 text-red-700;
+    }
+
+    .badge-gray {
+        @apply bg-gray-100 text-gray-700;
+    }
+
+    /* Filter bar */
+    .filter-bar {
+        @apply flex items-center gap-3 mb-6 flex-wrap;
+    }
+
+    .filter-btn {
+        @apply px-3 py-1.5 text-sm font-medium rounded-lg border transition-colors;
+        border-color: var(--color-border);
+    }
+
+    .filter-btn.active {
+        @apply bg-gray-900 text-white border-gray-900;
+    }
+
+    .filter-btn:not(.active) {
+        @apply bg-white text-gray-700 hover:bg-gray-50;
+    }
+
+    /* Stats cards */
+    .stat-card {
+        @apply bg-white rounded-xl border p-6 hover:shadow-md transition-shadow;
+        border-color: var(--color-border);
+    }
+
+    .stat-value {
+        @apply text-3xl font-bold text-gray-900;
+    }
+
+    .stat-label {
+        @apply text-sm text-gray-600 mt-1;
+    }
+
+    /* Queue position display */
+    .queue-position-badge {
+        @apply flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold;
+        background-color: #f3f0ff;
+        color: var(--color-accent-purple);
+    }
+
+    /* Doctor card improvements */
+    .doctor-card {
+        @apply bg-white rounded-xl border p-5 hover:shadow-md transition-all cursor-pointer;
+        border-color: var(--color-border);
+    }
+
+    .doctor-card:hover {
+        border-color: var(--color-accent-purple);
+    }
+
+    /* Empty state */
+    .empty-state {
+        @apply text-center py-16 px-4;
+    }
+
+    .empty-state-icon {
+        @apply mx-auto h-16 w-16 text-gray-300 mb-4;
+    }
+
+    .empty-state-title {
+        @apply text-lg font-medium text-gray-900 mb-2;
+    }
+
+    .empty-state-description {
+        @apply text-sm text-gray-500;
+    }
+
+    /* Menu items */
+    .menu-item {
+        @apply flex items-center justify-between px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer transition-colors;
+    }
+
+    .menu-item-active {
+        @apply bg-gray-100 font-medium;
+    }
+
+    /* Animations */
+    @keyframes slideIn {
+        from {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .animate-slide-in {
+        animation: slideIn 0.3s ease-out;
+    }
+
+    /* Loading spinner */
+    .spinner {
+        @apply inline-block w-5 h-5 border-2 border-gray-300 border-t-gray-900 rounded-full animate-spin;
+    }
+
+    /* Divider */
+    .divider {
+        @apply border-t my-6;
+        border-color: var(--color-border);
+    }
+
+    /* Page header */
+    .page-header {
+        @apply mb-8;
+    }
+
+    .page-title {
+        @apply text-2xl font-bold text-gray-900 mb-2;
+    }
+
+    .page-subtitle {
+        @apply text-sm text-gray-600;
+    }
+}
