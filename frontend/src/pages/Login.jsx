@@ -109,7 +109,7 @@ const Login = () => {
           </div>
           <div className="text-center mt-2 pt-2 border-t" style={{ borderColor: 'var(--color-border)' }}>
             <span className="italic">Passwords: </span>
-            <code className="font-semibold text-purple-600">patient123 / admin123 / doctor123</code>
+            <code className="font-semibold text-purple-600">patient123 / staff123 / doctor123</code>
           </div>
         </div>
       </div>
