@@ -24,8 +24,8 @@ const allowedOrigins = [
 
 const io = new Server(httpServer, {
   cors: {
-    origin: allowedOrigins,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    origin: true,
+    methods: ['GET', 'POST'],
     credentials: true
   }
 });
@@ -36,9 +36,12 @@ app.set('io', io);
 // Setup socket handlers
 setupSocket(io);
 
-// Middleware
+app.get('/', (req, res) => {
+  res.send('QueueLess API is running');
+});
+
 app.use(cors({
-  origin: allowedOrigins,
+  origin: true, // Allow all origins temporarily for debugging
   credentials: true
 }));
 app.use(express.json());
