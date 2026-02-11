@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 let socket;
 
 export const initSocket = (token) => {
-  socket = io('http://localhost:5001', {
+  socket = io('https://queueless-maj6.onrender.com', {
     auth: { token },
     reconnection: true,
     reconnectionAttempts: 5,
